@@ -29,6 +29,9 @@ LEMMATIZATION:
     
     from textblob import TextBlob, Word
     
+ from nltk.corpus import wordnet
+ 
+ wordnet.synsets('searchword')
     
 Note : This list is the not the finite list.
     
