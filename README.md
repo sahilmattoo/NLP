@@ -36,3 +36,21 @@ LEMMATIZATION:
 Note : This list is the not the finite list.
     
     
+BERT_LDA for Topic Modeling.ipynb
+        
+        ## Install Dependencies for BERT
+        
+    !pip install "tensorflow_hub>=0.6.0"
+    
+    !pip install "tensorflow>=2.0.0"
+    
+    !pip install sentence-transformers
+    
+    import tensorflow as tf
+    
+    import tensorflow_hub as hub
+    
+    from tensorflow.keras import layers
+    
+    # Load the Predefined BERT
+    embedder = SentenceTransformer('bert-base-nli-mean-tokens')
