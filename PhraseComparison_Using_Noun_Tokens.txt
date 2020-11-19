@@ -1,0 +1,35 @@
+Summary = unique_comments[0]
+tempset = set()
+old_phrases = set()
+for each in unique_comments[:10]:
+    print("\n",each,"\n")
+    new_phrases = set()
+    
+    obj = concepts_keywords(each)
+    Dictionary = obj.FindPos()
+    DF = obj.Trans_to_dataframe(Dictionary)
+    NP,KW = obj.NounPhrasing(DF)
+    I = obj.FindIntent(DF)
+    KW = list(set(I+KW))
+    LPObj = obj.List_of_Prepositional_objects(DF)
+    Sp, Mc, Sc = obj.FindMainConcept(NP, LPObj)
+    #print(Sp,"\n", Mc,"\n", Sc)
+
+
+    new_phrases = set(Sp + Mc + Sc + I)
+    print("new_phrases", new_phrases)
+    print("old_phrases", old_phrases)
+    cplen = len(new_phrases)
+    print("cplen",cplen)
+
+    difference = new_phrases.intersection(old_phrases)
+    oplen = len(old_phrases)
+    print("oplen",oplen)
+    old_phrases = new_phrases
+
+    
+    print("Intersection",difference,"\n")
+    intersectionlen = len(difference)
+    print("intersectionlen",intersectionlen)
+
+    #new_phrases = set()
